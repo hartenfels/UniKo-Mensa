@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+    <meta title="UniKo Mensa" package="unikomensa" version="1.0.0" company="Red Hair Entertainment"/>
+    <app main="unikomensa.Main" path="build" file="uniko-mensa"/>
+    <source path="src"/>
+    <haxelib name="openfl"/>
+    <haxelib name="actuate"/>
+    <haxelib name="haxeui"/>
+    <assets path="assets" rename="assets"/>
+</project>

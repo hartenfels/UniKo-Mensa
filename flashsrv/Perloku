@@ -1,0 +1,2 @@
+#!/bin/sh
+./flashsrv daemon --listen http://*:$PORT --mode production

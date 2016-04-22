@@ -1,0 +1,26 @@
+#!/usr/bin/env perl
+use Mojolicious::Lite;
+use Mojo::UserAgent;
+use Mojo::Util qw(decode);
+
+use constant URL => 'http://www.studierendenwerk-koblenz.de/api/speiseplan/speiseplan.xml';
+
+
+get '/' => sub {
+    my $text = decode('UTF-8', Mojo::UserAgent->new->get(URL)->res->body);
+    shift->render(format => 'xml', text => $text);
+};
+
+get '/crossdomain.xml' => sub {
+    shift->render(format => 'xml', text => <<'XML');
+<?xml version="1.0"?>
+<!DOCTYPE cross-domain-policy SYSTEM "http://www.adobe.com/xml/dtds/cross-domain-policy.dtd">
+<cross-domain-policy>
+    <site-control permitted-cross-domain-policies="master-only"/>
+    <allow-access-from domain="*"/>
+</cross-domain-policy>
+XML
+};
+
+
+app->start;
