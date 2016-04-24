@@ -64,7 +64,7 @@
             background-image: assets/tabup.png;
             background-color: #fec107;
             color           : #fdf1b7;
-            font-size       : 18;
+            font-size       : 17;
             font-embedded   : true;
         }
 
@@ -80,6 +80,14 @@
 
         ScrollView #container {
             background-color: #fafafa;
+        }
+
+        Link {
+            color: #05c5cfa;
+        }
+
+        Link:over {
+            color: #c5c5f4;
         }
     </style>
 </tabview>

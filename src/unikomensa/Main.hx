@@ -45,6 +45,7 @@ class Main
         for (day in 1 ... 6)
             tabs.addChild(new DayPanel(day, fetcher));
 
+        tabs.addChild(new InfoPanel());
         tabs.selectedIndex = DayPanel.getStartingDay() - 1;
 
         tabs.addEventListener(CHANGE, function (_) { pickTab(tabs); });
