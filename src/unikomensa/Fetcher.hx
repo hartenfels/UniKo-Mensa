@@ -40,8 +40,12 @@ class Fetcher
 
     function remember(map:MenuMap):Void
     {
+        for (key in Reflect.fields(so.data))
+            Reflect.deleteField(so.data, key);
+
         for (ymd in map.keys())
             Reflect.setField(so.data, ymd, map[ymd]);
+
         so.flush(0);
     }
 
