@@ -40,6 +40,7 @@ class Panel extends VBox
         list.addChild(spacer);
 
         callback(list);
+        scroll.invalidate();
     }
 
 }
