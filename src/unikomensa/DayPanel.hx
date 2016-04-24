@@ -23,8 +23,7 @@ class DayPanel extends VBox
     static inline var    FRIDAY = 5;
     static inline var  SATURDAY = 6;
 
-    static var WEEKDAYS = ["Sonntag", "Montag", "Dienstag", "Mittwoch",
-                           "Donnerstag", "Freitag", "Samstag"];
+    static var WEEKDAYS = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
     var day    :Int;
     var fetcher:Fetcher;
     var loaded = false;
