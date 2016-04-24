@@ -123,8 +123,4 @@ class DayPanel extends VBox
             showLoadingScreen();
     }
 
-    public function fallAsleep():Void
-    {
-    }
-
 }

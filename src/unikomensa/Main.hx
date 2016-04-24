@@ -37,9 +37,6 @@ class Main
         Actuate.tween(bar, delta / 500, {hscrollPos: scroll})
                .ease(Quad.easeOut);
 
-        for (i in 0 ... tabs.pageCount)
-            cast(tabs.getTabPage(i), DayPanel).fallAsleep();
-
         cast(tabs.selectedPage, DayPanel).wakeUp();
     }
 
