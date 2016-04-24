@@ -28,6 +28,8 @@ class Panel extends VBox
         var scroll = new ScrollView();
         scroll.percentWidth  = 100;
         scroll.percentHeight = 100;
+        scroll.showHScroll   = false;
+        scroll.showVScroll   = false;
         addChild(scroll);
 
         var list = new VBox();
