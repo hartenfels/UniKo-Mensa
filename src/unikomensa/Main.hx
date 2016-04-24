@@ -7,8 +7,11 @@ import haxe.ui.toolkit.core.RootManager;
 import haxe.ui.toolkit.core.Toolkit;
 import haxe.ui.toolkit.core.XMLController;
 import haxe.ui.toolkit.events.UIEvent.*;
+import haxe.ui.toolkit.style.Style;
+import haxe.ui.toolkit.style.StyleManager;
 import motion.Actuate;
 import motion.easing.Quad;
+import openfl.Assets;
 
 
 private class Controller extends XMLController
@@ -55,6 +58,14 @@ class Main
     public function main()
     {
         Toolkit.init();
+
+        var regular = Assets.getFont("assets/Roboto-Regular.ttf").fontName;
+        var medium  = Assets.getFont("assets/Roboto-Medium.ttf" ).fontName;
+        var sm      = StyleManager.instance;
+        sm.addStyle("Text",          new Style({fontName: regular}));
+        sm.addStyle("#heading",      new Style({fontName: medium }));
+        sm.addStyle("TabBar Button", new Style({fontName: medium }));
+
         Toolkit.openFullscreen(function(root:Root) {
             var controller = new Controller();
             root.addChild(controller.view);

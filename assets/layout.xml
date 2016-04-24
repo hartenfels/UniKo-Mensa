@@ -2,12 +2,87 @@
 <tabview id="tabs" width="100%" height="100%">
     <style>
         #menu {
-            padding-top   : 5;
-            padding-bottom: 5;
+            padding-top   : 0;
+            padding-bottom: 0;
+            padding-left  : 10;
+            padding-right : 10;
+        }
+
+        Text {
+            font-embedded: true;
         }
 
         #heading {
-            font-size : 20;
+            font-size    : 20;
+            font-embedded: true;
+        }
+
+        #menu Text {
+            color: #727272;
+        }
+
+        HBox, VBox {
+            background-color: #fafafa;
+        }
+
+        #line {
+            background-color: #dbdbdb;
+        }
+
+        #topspacer {
+            padding-top   : 0;
+            padding-bottom: 0;
+        }
+
+        #topspacer #line {
+            background-color             : #c6c6c6;
+            background-color-gradient-end: #fafafa;
+            height                       : 10;
+        }
+
+        ScrollView {
+            padding-top   : 0;
+            padding-bottom: 0;
+            padding-left  : 0;
+            padding-right : 0;
+            filter        :;
+        }
+
+        TabView Stack {
+            paddingLeft  : 0;
+            paddingRight : 0;
+            paddingBottom: 0;
+            paddingTop   : 0;
+        }
+
+        TabBar HBox {
+            background-color: #fec107;
+        }
+
+        Button {
+            filter:;
+        }
+
+        TabBar Button {
+            background-image: assets/tabup.png;
+            background-color: #fec107;
+            color           : #fdf1b7;
+            font-size       : 18;
+            font-embedded   : true;
+        }
+
+        TabBar Button:down {
+            background-image: assets/tabdown.png;
+            background-color: #fec107;
+            color           : #fcffff;
+        }
+
+        #container {
+            background-color: #fec107;
+        }
+
+        ScrollView #container {
+            background-color: #fafafa;
         }
     </style>
 </tabview>

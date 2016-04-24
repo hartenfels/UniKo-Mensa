@@ -72,6 +72,11 @@ class DayPanel extends VBox
         list.percentWidth = 100;
         scroll.addChild(list);
 
+        var spacer    = new Divider();
+        spacer.id     = "topspacer";
+        spacer.height = 10;
+        list.addChild(spacer);
+
         for (menu in menus) {
             var hbox = new HBox();
             hbox.id           = "menu";
