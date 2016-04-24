@@ -2,7 +2,6 @@ package unikomensa;
 
 import haxe.Timer;
 import haxe.ui.toolkit.containers.HBox;
-import haxe.ui.toolkit.containers.ScrollView;
 import haxe.ui.toolkit.containers.VBox;
 import haxe.ui.toolkit.controls.Divider;
 import haxe.ui.toolkit.controls.Image;
@@ -55,52 +54,38 @@ class DayPanel extends Panel
     function showMenus(menus:Array<Menu>)
     {
         loaded = true;
-        removeAllChildren(true);
+        createListPanel(function (list:VBox) {
+            for (menu in menus) {
+                var hbox = new HBox();
+                hbox.id           = "menu";
+                hbox.percentWidth = 100;
+                list.addChild(hbox);
 
-        var scroll = new ScrollView();
-        scroll.percentWidth  = 100;
-        scroll.percentHeight = 100;
-        addChild(scroll);
+                var image      = new Image();
+                image.resource = 'assets/${menu.type}.png';
+                image.width    = 80;
+                hbox.addChild(image);
 
-        var list = new VBox();
-        list.percentWidth = 100;
-        scroll.addChild(list);
+                var vbox = new VBox();
+                vbox.percentWidth = 100;
+                hbox.addChild(vbox);
 
-        var spacer    = new Divider();
-        spacer.id     = "topspacer";
-        spacer.height = 10;
-        list.addChild(spacer);
+                var heading          = new Text();
+                heading.id           = "heading";
+                heading.text         = menu.title;
+                heading.percentWidth = 100;
+                vbox.addChild(heading);
 
-        for (menu in menus) {
-            var hbox = new HBox();
-            hbox.id           = "menu";
-            hbox.percentWidth = 100;
-            list.addChild(hbox);
+                var description          = new Text();
+                description.text         = menu.text;
+                description.percentWidth = 100;
+                description.multiline    = true;
+                description.wrapLines    = true;
+                vbox.addChild(description);
 
-            var image      = new Image();
-            image.resource = 'assets/${menu.type}.png';
-            image.width    = 80;
-            hbox.addChild(image);
-
-            var vbox = new VBox();
-            vbox.percentWidth = 100;
-            hbox.addChild(vbox);
-
-            var heading          = new Text();
-            heading.id           = "heading";
-            heading.text         = menu.title;
-            heading.percentWidth = 100;
-            vbox.addChild(heading);
-
-            var description          = new Text();
-            description.text         = menu.text;
-            description.percentWidth = 100;
-            description.multiline    = true;
-            description.wrapLines    = true;
-            vbox.addChild(description);
-
-            list.addChild(new Divider());
-        }
+                list.addChild(new Divider());
+            }
+        });
     }
 
 

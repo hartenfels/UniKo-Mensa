@@ -2,7 +2,6 @@ package unikomensa;
 
 import haxe.Timer;
 import haxe.ui.toolkit.containers.HBox;
-import haxe.ui.toolkit.containers.ScrollView;
 import haxe.ui.toolkit.containers.VBox;
 import haxe.ui.toolkit.controls.Divider;
 import haxe.ui.toolkit.controls.Link;
@@ -35,21 +34,11 @@ class InfoPanel extends Panel
     public function new()
     {
         super("About");
+        createListPanel(setUpList);
+    }
 
-        var scroll = new ScrollView();
-        scroll.percentWidth  = 100;
-        scroll.percentHeight = 100;
-        addChild(scroll);
-
-        var list = new VBox();
-        list.percentWidth = 100;
-        scroll.addChild(list);
-
-        var spacer    = new Divider();
-        spacer.id     = "topspacer";
-        spacer.height = 10;
-        list.addChild(spacer);
-
+    function setUpList(list:VBox)
+    {
         for (s in setup) {
             var hbox = new HBox();
             hbox.id           = "menu";
