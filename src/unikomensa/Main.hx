@@ -64,7 +64,7 @@ class Main
         sm.addStyle("#heading",      new Style({fontName: medium }));
         sm.addStyle("TabBar Button", new Style({fontName: medium }));
 
-        Toolkit.openFullscreen(function(root:Root) {
+        Toolkit.openFullscreen(function (root:Root) {
             var controller = new Controller();
             root.addChild(controller.view);
             setUpTabs(root.findChild("tabs", TabView, true));

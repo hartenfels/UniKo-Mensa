@@ -53,7 +53,7 @@ class LoadPanel extends SpriteContainer
         textField.text              = "Making the Mensa\nApp Great Again...";
         childSprite.addChild(textField);
 
-        addEventListener(UIEvent.RESIZE, function(_) { resize(); });
+        addEventListener(UIEvent.RESIZE, function (_) { resize(); });
         resize();
     }
 
