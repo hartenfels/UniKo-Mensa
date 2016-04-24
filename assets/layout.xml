@@ -10,15 +10,12 @@
 
         Text {
             font-embedded: true;
+            color        : #727272;
         }
 
         #heading {
             font-size    : 20;
             font-embedded: true;
-        }
-
-        #menu Text {
-            color: #727272;
         }
 
         HBox, VBox {
