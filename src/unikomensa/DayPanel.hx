@@ -49,12 +49,8 @@ class DayPanel extends VBox
 
     function showLoadingScreen():Void
     {
-        Timer.delay(function() {
-            if (!loaded) {
-                removeAllChildren(true);
-                addChild(new LoadPanel());
-            }
-        }, 200);
+        if (!loaded)
+            addChild(new LoadPanel());
     }
 
     function showMenus(menus:Array<Menu>)
