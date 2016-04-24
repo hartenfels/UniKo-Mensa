@@ -93,6 +93,9 @@ class Fetcher
             return;
 
         var http = new Http(API_URL);
+      #if js
+        http.async = true;
+      #end
         http.onData  = onData;
         http.onError = onError;
         http.request();
