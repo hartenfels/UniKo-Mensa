@@ -37,7 +37,7 @@ class Main
         Actuate.tween(bar, delta / 500, {hscrollPos: scroll})
                .ease(Quad.easeOut);
 
-        cast(tabs.selectedPage, DayPanel).wakeUp();
+        cast(tabs.selectedPage, Panel).wakeUp();
     }
 
     function setUpTabs(tabs:TabView)

@@ -12,7 +12,7 @@ import unikomensa.Parser;
 using DateTools;
 
 
-class DayPanel extends VBox
+class DayPanel extends Panel
 {
 
     static inline var    SUNDAY = 0;
@@ -30,12 +30,11 @@ class DayPanel extends VBox
 
     public function new(?day:Int, ?fetcher:Fetcher)
     {
-        super();
+        super(WEEKDAYS[day]);
         this.day      = day;
         this.fetcher  = fetcher;
         percentWidth  = 100;
         percentHeight = 100;
-        text          = WEEKDAYS[day];
     }
 
     public static function getStartingDay():Int
@@ -105,7 +104,7 @@ class DayPanel extends VBox
     }
 
 
-    public function wakeUp():Void
+    override public function wakeUp():Void
     {
         var date = Date.now();
         if (date.getDay() == SATURDAY || date.getDay() == SUNDAY)
