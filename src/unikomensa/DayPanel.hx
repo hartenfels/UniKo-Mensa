@@ -1,6 +1,5 @@
 package unikomensa;
 
-import haxe.Timer;
 import haxe.ui.toolkit.containers.HBox;
 import haxe.ui.toolkit.containers.VBox;
 import haxe.ui.toolkit.controls.Divider;
