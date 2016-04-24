@@ -33,7 +33,7 @@ class Fetcher
         } catch (e:Dynamic) {
             trace(e);
             // Punt to non-persistent object.
-            so = {data: {}, flush: function(minDiskSpace:Int) {}};
+            so = {data: {}, flush: function(minDiskSpace:Int = 0) {}};
         }
     }
 
