@@ -9,11 +9,16 @@ import openfl.Assets;
 import openfl.display.Sprite;
 import openfl.geom.Matrix;
 import openfl.Lib;
+import openfl.text.TextField;
+import openfl.text.TextFieldAutoSize;
+import openfl.text.TextFormat;
+import openfl.text.TextFormatAlign;
 
 class LoadPanel extends SpriteContainer
 {
 
-    var icon = new Sprite();
+    var icon      = new Sprite();
+    var textField = new TextField();
 
     public function new()
     {
@@ -21,7 +26,7 @@ class LoadPanel extends SpriteContainer
         percentWidth  = 100;
         percentHeight = 100;
 
-        var asset = Assets.getBitmapData("assets/menu1.png");
+        var asset = Assets.getBitmapData("assets/spinner.png");
 
         var tx = -0.5 * asset.width;
         var ty = -0.5 * asset.height;
@@ -35,12 +40,18 @@ class LoadPanel extends SpriteContainer
 
         childSprite = new Sprite();
         childSprite.addChild(icon);
+        rotate();
 
-        icon.scaleX = icon.scaleY = 0.0;
-        Actuate.tween(icon, 1, {scaleX: 1.0, scaleY: 1.0})
-               .delay(0.2)
-               .ease(Elastic.easeOut)
-               .onComplete(rotate);
+        var format   = new TextFormat();
+        format.font  = Assets.getFont("assets/Roboto-Medium.ttf").fontName;
+        format.size  = 20;
+        format.color = 0x333333;
+        format.align = TextFormatAlign.CENTER;
+
+        textField.defaultTextFormat = format;
+        textField.wordWrap          = true;
+        textField.text              = "Making the Mensa\nApp Great Again...";
+        childSprite.addChild(textField);
 
         addEventListener(UIEvent.RESIZE, function(_) { resize(); });
         resize();
@@ -49,7 +60,10 @@ class LoadPanel extends SpriteContainer
     function resize():Void
     {
         icon.x = width  / 2;
-        icon.y = height / 2;
+        icon.y = height / 2 - 25;
+
+        textField.width = width;
+        textField.y     = height * 0.5 + 50;
     }
 
     function rotate()
